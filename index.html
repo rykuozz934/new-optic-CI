@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Үйлчлүүлэгчийн бүртгэл</title>
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- iOS support -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+    h1 { color: #2563eb; }
+    p { font-size: 16px; color: #444; }
+    button { padding: 10px 15px; border: none; border-radius: 6px; cursor: pointer; background: #2563eb; color: white; }
+  </style>
+</head>
+<body>
+  <h1>Үйлчлүүлэгчийн бүртгэл</h1>
+  <p>Энэ бол миний PWA апп. Та үүнийг "Add to Home Screen" хийснээр утасны апп шиг ашиглаж чадна 🚀</p>
+
+  <button onclick="alert('Та дарлаа!')">Турших</button>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js")
+        .then(() => console.log("✅ Service Worker registered"))
+        .catch(err => console.warn("❌ SW error:", err));
+    }
+  </script>
+</body>
+</html>
